@@ -1,4 +1,19 @@
 ---
+- name: Check if Homebrew is already installed
+  command: which brew
+  register: brew_installed
+  ignore_errors: true
 
-- name:  Ping MacOS
-  ping:
+- name: Install Homebrew if not installed
+  shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  when: brew_installed.failed
+  environment:
+    NONINTERACTIVE: "1"  # To avoid user interaction during install
+
+- name: Install Brew packages
+  community.general.homebrew:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - gh
+    - tree
