@@ -1,2 +1,4 @@
 ---
-# tasks file for mac
+
+- name:  Ping MacOS
+  ping:

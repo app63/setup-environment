@@ -1,0 +1,4 @@
+---
+- hosts: mac_systems
+  roles:
+    - mac

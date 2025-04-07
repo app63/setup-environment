@@ -1,2 +1,3 @@
 ---
 # defaults file for mac
+ping_message: "Ping successful!"
