@@ -17,3 +17,17 @@
   loop:
     - gh
     - tree
+    - terraform
+    - kubernetes-cli
+    - git
+    - gh
+    - zsh-autosuggestions
+    - awscli
+
+- name: Install Brew cask packages
+  community.general.homebrew:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - visual-studio-code
+    - google-chrome
