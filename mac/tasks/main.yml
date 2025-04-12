@@ -28,6 +28,7 @@
   community.general.homebrew:
     name: "{{ item }}"
     state: present
+  install_options: cask
   loop:
     - visual-studio-code
     - google-chrome
